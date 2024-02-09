@@ -1,0 +1,1 @@
+INSERT INTO login(id, email, pass, key_private, key_public) VALUES(1, 'elmer.lopezv@gmail.com', '569809', '93c388d93ac71a5097ee76bfbf82f8e52b9ace46', '8b7c285ce1db36d5ec3d5429113e08ab');
