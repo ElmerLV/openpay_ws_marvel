@@ -18,6 +18,7 @@ import java.util.Base64;
  * @since 08/02/24
  */
 
+@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/marvel")
