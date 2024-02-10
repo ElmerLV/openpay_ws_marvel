@@ -1,6 +1,7 @@
 package com.openpay.marvel.services;
 
 import com.openpay.marvel.entity.MarvelEntity;
+import com.openpay.marvel.model.Character;
 
 import java.util.List;
 
@@ -12,9 +13,9 @@ import java.util.List;
 
 public interface MarvelService {
 
-	Object getCharacters(Long id,
-								String email,
-								String pass);
+	List<Character> getCharacters(Long id,
+								  String email,
+								  String pass);
 
 	List<MarvelEntity> getConsultas();
 

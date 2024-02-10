@@ -2,7 +2,7 @@ package com.openpay.marvel.services;
 
 import com.openpay.marvel.entity.LoginEntity;
 import com.openpay.marvel.entity.MarvelEntity;
-import com.openpay.marvel.model.CharacterList;
+import com.openpay.marvel.model.Character;
 import com.openpay.marvel.repository.LoginRepository;
 import com.openpay.marvel.repository.MarvelRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,7 +57,7 @@ class MarvelServicesTest {
         Mockito.when(restTemplate.getForObject(Mockito.anyString(), Mockito.any()))
                 .thenReturn("{'name':'name','description':'description'}");
 
-        CharacterList result = marvelService.getCharacters(1L, "elmer.lopezv@gmail.com", "123abc");
+        List<Character> result = marvelService.getCharacters(1L, "elmer.lopezv@gmail.com", "123abc");
 
         assertNotNull(result);
     }
