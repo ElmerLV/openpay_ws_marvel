@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.openpay.marvel.entity.LoginEntity;
 import com.openpay.marvel.entity.MarvelEntity;
 import com.openpay.marvel.model.Character;
-import com.openpay.marvel.model.CharacterList;
 import com.openpay.marvel.repository.LoginRepository;
 import com.openpay.marvel.repository.MarvelRepository;
 import com.openpay.marvel.utils.MD5Util;
@@ -42,7 +41,7 @@ public class MarvelServiceImpl implements MarvelService {
 	}
 
 	@Override
-	public CharacterList getCharacters(Long id,
+	public List<Character> getCharacters(Long id,
 								String email,
 								String pass) {
 
@@ -58,8 +57,7 @@ public class MarvelServiceImpl implements MarvelService {
 
 		String json = getDataApiExtern(basePath, ts, login.get().getKeyPrivate(), login.get().getKeyPublic());
 
-		List<Character> characterList = new ArrayList<>();
-		CharacterList characters = new CharacterList();
+		List<Character> characters = new ArrayList<>();
 
 		try {
 			ObjectMapper mapper = new ObjectMapper();
@@ -79,8 +77,7 @@ public class MarvelServiceImpl implements MarvelService {
 						+ "." + characterNode.path("thumbnail").path("extension").asText();
 
 				character.setImage(image);
-				characterList.add(character);
-				characters.setCharacters(characterList);
+				characters.add(character);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
